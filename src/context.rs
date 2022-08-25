@@ -385,6 +385,7 @@ pub enum Brush {
     Solid(Color),
 }
 
+#[derive(Clone)]
 pub struct WgpuImage {}
 
 impl<'a> RenderContext for WgpuRenderContext<'a> {
