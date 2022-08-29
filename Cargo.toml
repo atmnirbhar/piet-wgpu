@@ -11,13 +11,13 @@ log = "0.4.14"
 hashbrown = "0.12.3"
 unicode-width = "0.1.8"
 include_dir = "0.7.2"
-tiny-skia = "0.6.6"
+tiny-skia = "0.8.0"
 sha2 = "0.10.2"
-resvg = "0.23.0"
+resvg = { git = "https://github.com/ghishadow/resvg", branch = "master" }
 usvg = "0.23.0"
 linked-hash-map = "0.5.4"
 pathfinder_geometry = "0.5.1"
-lyon = "1.0.0"
+lyon = "0.17.10"
 piet = "0.5.0"
 swash = { git = "https://github.com/lapce/swash" }
 # swash = { path = "../workspaces/swash" }

@@ -8,7 +8,7 @@ use sha2::{Digest, Sha256};
 #[derive(Clone)]
 pub struct Svg {
     hash: Vec<u8>,
-    pub(crate) tree: usvg::Tree,
+    pub(crate) tree: resvg::usvg::Tree,
 }
 
 unsafe impl Send for Svg {}
@@ -22,7 +22,7 @@ impl FromStr for Svg {
         hasher.update(s);
         let hash = hasher.finalize().to_vec();
 
-        match usvg::Tree::from_str(s, &usvg::Options::default().to_ref()) {
+        match resvg::usvg::Tree::from_str(s, &resvg::usvg::Options::default().to_ref()) {
             Ok(tree) => Ok(Self { hash, tree }),
             Err(err) => Err(err.into()),
         }
@@ -170,9 +170,9 @@ impl SvgCache {
         let _ = resvg::render(
             &svg.tree,
             if width > height {
-                usvg::FitTo::Width(width)
+                resvg::usvg::FitTo::Width(width)
             } else {
-                usvg::FitTo::Height(height)
+                resvg::usvg::FitTo::Height(height)
             },
             transform,
             img.as_mut(),
